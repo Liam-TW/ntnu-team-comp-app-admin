@@ -67,10 +67,13 @@
 </head>
 <body>
   <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+  <a href="#" onclick="showPage('home-content')" style="position: fixed; top: 10px; right: 20px; z-index: 1001;">
+    <img src="./images/logo.png" alt="Logo" style="height: 100px; width: auto;">
+  </a>
 
   <div class="sidebar" id="sidebar">
     <h3>功能選單</h3>
-    <a href="#" onclick="showHome()">🏠 首頁</a>
+    <a href="#" onclick="showPage('home-content')">🏠 首頁</a>
     <a href="#">🗺️ 導航紀錄查詢</a>
     <a href="#">🎙️ 語音查詢紀錄</a>
     <a href="#">🚌 票務操作紀錄</a>
@@ -89,7 +92,7 @@
     <table style="width: 100%; border-collapse: collapse;">
       <thead style="background: #AAD194; color: white;">
         <tr>
-          <th style="padding: 10px;">姓名</th>
+          <th style="padding: 10px;">用戶手機號碼</th>
           <th style="padding: 10px;">會員 ID</th>
           <th style="padding: 10px;">註冊日期</th>
           <th style="padding: 10px;">操作</th>
@@ -97,16 +100,16 @@
       </thead>
       <tbody>
         <tr style="background: #f9f9f9;">
-          <td style="padding: 10px;">王太太</td>
+          <td style="padding: 10px;">+886 912 345 678</td>
           <td style="padding: 10px;">UID001</td>
           <td style="padding: 10px;">2024-11-01</td>
-          <td style="padding: 10px;"><button onclick="showMemberDetail()">查看</button></td>
+          <td style="padding: 10px;"><button onclick="showPage('member-detail-1')">查看</button></td>
         </tr>
         <tr>
-          <td style="padding: 10px;">林爺爺</td>
+          <td style="padding: 10px;">+886 987 654 321</td>
           <td style="padding: 10px;">UID002</td>
           <td style="padding: 10px;">2025-02-15</td>
-          <td style="padding: 10px;"><button onclick="showMemberDetail()">查看</button></td>
+          <td style="padding: 10px;"><button onclick="showPage('member-detail-2')">查看</button></td>
         </tr>
       </tbody>
     </table>
@@ -130,29 +133,200 @@
     </div>
   </div>
 
-  <div class="content" id="member-detail" style="display: none;">
+
+  <div class="content shift" id="member-detail-1" style="display: none;">
     <header>
       <h1>會員詳細資訊</h1>
       <p>您目前正在檢視特定會員的詳細資料。</p>
     </header>
+
+    <!-- 基本資料區塊 -->
+    <section style="background: #f8f8f8; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+      <h3>👤 基本資料</h3>
+      <p>姓名：王老明</p>
+      <p>會員 ID：UID001</p>
+      <p>註冊日期：2024-11-01</p>
+      <p>手機號碼：+886 912 345 678</p>
+    </section>
+
+    <!-- 使用紀錄概況 -->
+    <section style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 200px; background: #fff4f4; padding: 20px; border-radius: 10px;">
+        <h3>📍 常用地點</h3>
+        <p>台大癌醫</p>
+        <p>兒子的家</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #f1f8ff; padding: 20px; border-radius: 10px;">
+        <h3>🧭 最近導航紀錄</h3>
+        <p>上次使用：2025-04-10</p>
+        <p>總導航次數：24</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #fffef0; padding: 20px; border-radius: 10px;">
+        <h3>🔔 求助紀錄</h3>
+        <p>總計 3 次</p>
+        <p>上次：2025-04-05</p>
+      </div>
+    </section>
+
+    <!-- 家人配對資訊 -->
+    <section style="margin-top: 30px; background: #f6f8ff; padding: 20px; border-radius: 10px;">
+      <h3>👪 家人配對資訊</h3>
+      <p>配對碼：FAMILY-6732TY</p>
+      <p>配對對象：</p>
+      <ul>
+        <li>王小華（+886 987 654 321）</li>
+        <li>王小美（+886 912 111 222）</li>
+      </ul>
+    </section>
+
+    <!-- 活動紀錄表格 -->
+    <section style="margin-top: 30px;">
+      <h3>📅 最近活動</h3>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead style="background: #799867; color: white;">
+          <tr>
+            <th style="padding: 10px;">日期</th>
+            <th style="padding: 10px;">行為類型</th>
+            <th style="padding: 10px;">詳情</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px;">2025-04-10</td>
+            <td style="padding: 10px;">導航</td>
+            <td style="padding: 10px;">台北轉運 → 台大癌醫</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">2025-04-05</td>
+            <td style="padding: 10px;">求助</td>
+            <td style="padding: 10px;">按下 SOS 求助</td>
+          </tr>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px;">2025-03-30</td>
+            <td style="padding: 10px;">語音輸入</td>
+            <td style="padding: 10px;">目標地點：「兒子的家」</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </div>
+
+
+  <div class="content shift" id="member-detail-2" style="display: none;">
+    <header>
+      <h1>會員詳細資訊</h1>
+      <p>您目前正在檢視特定會員的詳細資料。</p>
+    </header>
+
+    <!-- 基本資料區塊 -->
+    <section style="background: #f8f8f8; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+      <h3>👤 基本資料</h3>
+      <p>姓名：林老華</p>
+      <p>會員 ID：UID001</p>
+      <p>註冊日期：2024-11-01</p>
+      <p>手機號碼：+886 912 345 678</p>
+    </section>
+
+    <!-- 使用紀錄概況 -->
+    <section style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 200px; background: #fff4f4; padding: 20px; border-radius: 10px;">
+        <h3>📍 常用地點</h3>
+        <p>國家圖書館</p>
+        <p>建國花市</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #f1f8ff; padding: 20px; border-radius: 10px;">
+        <h3>🧭 最近導航紀錄</h3>
+        <p>上次使用：2025-04-8</p>
+        <p>總導航次數：15</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #fffef0; padding: 20px; border-radius: 10px;">
+        <h3>🔔 求助紀錄</h3>
+        <p>總計 1 次</p>
+        <p>上次：2025-04-05</p>
+      </div>
+    </section>
+
+    <!-- 家人配對資訊 -->
+    <section style="margin-top: 30px; background: #f6f8ff; padding: 20px; border-radius: 10px;">
+      <h3>👪 家人配對資訊</h3>
+      <p>配對碼：FAMILY-8432XZ</p>
+      <p>配對對象：</p>
+      <ul>
+        <li>林小茹（+886 987 654 321）</li>
+        <li>林小豪（+886 912 111 222）</li>
+      </ul>
+    </section>
+
+    <!-- 活動紀錄表格 -->
+    <section style="margin-top: 30px;">
+      <h3>📅 最近活動</h3>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead style="background: #799867; color: white;">
+          <tr>
+            <th style="padding: 10px;">日期</th>
+            <th style="padding: 10px;">行為類型</th>
+            <th style="padding: 10px;">詳情</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px;">2025-04-10</td>
+            <td style="padding: 10px;">導航</td>
+            <td style="padding: 10px;">松山車站 → 建國花市</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px;">2025-04-05</td>
+            <td style="padding: 10px;">求助</td>
+            <td style="padding: 10px;">按下 SOS 求助</td>
+          </tr>
+          <tr style="background: #f9f9f9;">
+            <td style="padding: 10px;">2025-03-30</td>
+            <td style="padding: 10px;">語音輸入</td>
+            <td style="padding: 10px;">目標地點：「建國花市」</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <a href="mailto:support@example.com" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1001;
+    background-color: #799867;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  ">
+    💬 打給工程師
+  </a>
 
   <script>
     function toggleMenu() {
       const sidebar = document.getElementById('sidebar');
-      const content = document.querySelector('.content');
+      const contents = document.querySelectorAll('.content');
       sidebar.classList.toggle('open');
-      content.classList.toggle('shift');
+      contents.forEach(c => c.classList.toggle('shift'));
     }
 
-    function showMemberDetail() {
-      document.getElementById('home-content').style.display = 'none';
-      document.getElementById('member-detail').style.display = 'block';
-    }
+    function showPage(pageId) {
+      document.querySelectorAll('.content').forEach(page => {
+        page.style.display = 'none';
+      });
 
-    function showHome() {
-      document.getElementById('home-content').style.display = 'block';
-      document.getElementById('member-detail').style.display = 'none';
+      const target = document.getElementById(pageId);
+      if (target) {
+        target.style.display = 'block';
+        if (document.getElementById('sidebar').classList.contains('open')) {
+          target.classList.add('shift');
+        } else {
+          target.classList.remove('shift');
+        }
+      }
     }
   </script>
 </body>
