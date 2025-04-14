@@ -68,8 +68,7 @@
 
   <div class="sidebar" id="sidebar">
     <h3>功能選單</h3>
-    <a href="#">📊 儀表板總覽</a>
-    <a href="#">🧓 使用者管理</a>
+    <a href="#" onclick="showHome()">🏠 首頁</a>
     <a href="#">🗺️ 導航紀錄查詢</a>
     <a href="#">🎙️ 語音查詢紀錄</a>
     <a href="#">🚌 票務操作紀錄</a>
@@ -79,31 +78,61 @@
     <a href="#">🛠️ 後台設定</a>
   </div>
 
-  <div class="content" id="content">
+  <!-- 會員總覽主頁 -->
+  <div class="content" id="home-content">
     <header>
-      <h1>好搭啦 後端管理平台</h1>
-      <p>請從左側選單選擇功能</p>
+      <h1>會員管理總覽</h1>
+      <p>請從下方選擇會員查看詳細資料</p>
     </header>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 20px 0;">
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead style="background: #01814A; color: white;">
+        <tr>
+          <th style="padding: 10px;">姓名</th>
+          <th style="padding: 10px;">會員 ID</th>
+          <th style="padding: 10px;">註冊日期</th>
+          <th style="padding: 10px;">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background: #f9f9f9;">
+          <td style="padding: 10px;">王太太</td>
+          <td style="padding: 10px;">UID001</td>
+          <td style="padding: 10px;">2024-11-01</td>
+          <td style="padding: 10px;"><button onclick="showMemberDetail()">查看</button></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px;">林爺爺</td>
+          <td style="padding: 10px;">UID002</td>
+          <td style="padding: 10px;">2025-02-15</td>
+          <td style="padding: 10px;"><button onclick="showMemberDetail()">查看</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 40px 0;">
       <div style="flex: 1; min-width: 200px; background: #f8f8f8; padding: 20px; border-radius: 10px;">
-        <h3>👥 每日用戶量</h3>
-        <p>今日使用者：152 人</p>
-        <p>較昨日增加：+12%</p>
-      </div>
-      <div style="flex: 1; min-width: 200px; background: #fff4f4; padding: 20px; border-radius: 10px;">
-        <h3>🔔 用戶警訊</h3>
+        <h3>🔔 每日求助一覽</h3>
         <p>當日求助紀錄：3 筆</p>
         <p>異常行為：1 筆</p>
       </div>
-      <div style="flex: 1; min-width: 200px; background: #f1f8ff; padding: 20px; border-radius: 10px;">
-        <h3>🧭 最常使用路線</h3>
-        <p>台北轉運 → 台大癌醫</p>
+      <div style="flex: 1; min-width: 200px; background: #fffdf0; padding: 20px; border-radius: 10px;">
+        <h3>📝 用戶回饋</h3>
+        <p>最新留言：「導航很清楚」</p>
+        <p>滿意度平均：4.6 / 5</p>
       </div>
-      <div style="flex: 1; min-width: 200px; background: #fffef0; padding: 20px; border-radius: 10px;">
-        <h3>📍 熱門目的地</h3>
-        <p>台大癌醫、兒子的家、信義區</p>
+      <div style="flex: 1; min-width: 200px; background: #f1f8ff; padding: 20px; border-radius: 10px;">
+        <h3>📈 活躍用戶趨勢</h3>
+        <p>本週平均每日使用者：145</p>
+        <p>較上週 +8%</p>
       </div>
     </div>
+  </div>
+
+  <div class="content" id="member-detail" style="display: none;">
+    <header>
+      <h1>會員詳細資訊</h1>
+      <p>您目前正在檢視特定會員的詳細資料。</p>
+    </header>
   </div>
 
   <script>
@@ -112,6 +141,16 @@
       const content = document.getElementById('content');
       sidebar.classList.toggle('open');
       content.classList.toggle('shift');
+    }
+
+    function showMemberDetail() {
+      document.getElementById('home-content').style.display = 'none';
+      document.getElementById('member-detail').style.display = 'block';
+    }
+
+    function showHome() {
+      document.getElementById('home-content').style.display = 'block';
+      document.getElementById('member-detail').style.display = 'none';
     }
   </script>
 </body>
