@@ -14,7 +14,7 @@
     }
     .sidebar {
       width: 250px;
-      background-color: #01814A;
+      background-color: #799867	;
       color: white;
       position: fixed;
       top: 0;
@@ -42,11 +42,13 @@
     .content {
       flex-grow: 1;
       margin-left: 0;
-      transition: transform 0.3s;
+      transition: margin-left 0.3s;
       padding: 20px;
-      width: 100%;
     }
-    .content.shift { transform: translateX(250px); }
+    .content.shift {
+      margin-left: 250px;
+      transform: none;
+    }
     .menu-btn {
       position: fixed;
       top: 15px;
@@ -85,7 +87,7 @@
       <p>請從下方選擇會員查看詳細資料</p>
     </header>
     <table style="width: 100%; border-collapse: collapse;">
-      <thead style="background: #01814A; color: white;">
+      <thead style="background: #AAD194; color: white;">
         <tr>
           <th style="padding: 10px;">姓名</th>
           <th style="padding: 10px;">會員 ID</th>
@@ -138,7 +140,7 @@
   <script>
     function toggleMenu() {
       const sidebar = document.getElementById('sidebar');
-      const content = document.getElementById('content');
+      const content = document.querySelector('.content');
       sidebar.classList.toggle('open');
       content.classList.toggle('shift');
     }
