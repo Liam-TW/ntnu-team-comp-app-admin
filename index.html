@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>好搭啦 後端管理平台</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #01814A;
+      color: white;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar h3 {
+      margin-left: 20px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .sidebar a:hover {
+      background-color: #1e5e91;
+    }
+    .content {
+      flex-grow: 1;
+      margin-left: 0;
+      transition: transform 0.3s;
+      padding: 20px;
+      width: 100%;
+    }
+    .content.shift { transform: translateX(250px); }
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      font-size: 36px;
+      cursor: pointer;
+      color: #3C3C3C;
+      z-index: 1001;
+    }
+    header {
+      background-color: #f4f4f4;
+      padding: 20px;
+      padding-left: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+
+  <div class="sidebar" id="sidebar">
+    <h3>功能選單</h3>
+    <a href="#">📊 儀表板總覽</a>
+    <a href="#">🧓 使用者管理</a>
+    <a href="#">🗺️ 導航紀錄查詢</a>
+    <a href="#">🎙️ 語音查詢紀錄</a>
+    <a href="#">🚌 票務操作紀錄</a>
+    <a href="#">📍 地點偏好與熱區</a>
+    <a href="#">🔔 緊急求助紀錄</a>
+    <a href="#">👨‍💻 系統錯誤 Log</a>
+    <a href="#">🛠️ 後台設定</a>
+  </div>
+
+  <div class="content" id="content">
+    <header>
+      <h1>好搭啦 後端管理平台</h1>
+      <p>請從左側選單選擇功能</p>
+    </header>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 20px 0;">
+      <div style="flex: 1; min-width: 200px; background: #f8f8f8; padding: 20px; border-radius: 10px;">
+        <h3>👥 每日用戶量</h3>
+        <p>今日使用者：152 人</p>
+        <p>較昨日增加：+12%</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #fff4f4; padding: 20px; border-radius: 10px;">
+        <h3>🔔 用戶警訊</h3>
+        <p>當日求助紀錄：3 筆</p>
+        <p>異常行為：1 筆</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #f1f8ff; padding: 20px; border-radius: 10px;">
+        <h3>🧭 最常使用路線</h3>
+        <p>台北轉運 → 台大癌醫</p>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #fffef0; padding: 20px; border-radius: 10px;">
+        <h3>📍 熱門目的地</h3>
+        <p>台大癌醫、兒子的家、信義區</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const content = document.getElementById('content');
+      sidebar.classList.toggle('open');
+      content.classList.toggle('shift');
+    }
+  </script>
+</body>
+</html>
